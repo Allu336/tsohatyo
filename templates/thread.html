@@ -1,0 +1,26 @@
+<form action="/luoviesti" method="POST">
+<a href="/">Etusivulle</a>
+<title>{{ thread[0] }}</title>
+<h2>{{ thread[0] }}</h2>
+<p><b>
+{{ thread[4] }}
+</p>
+<p><a href="/profiili/{{ thread[2] }}">{{ thread[2] }}</a>  luonut: {{ thread[3].strftime("%Y-%m-%d %H:%M:%S") }}
+</b></p>
+{{ thread[1] }}
+</p>
+<hr>
+{% if session.username %}
+Viesti:
+<br>
+<textarea name="text" rows="4" cols="50"> </textarea>
+<br>
+<input type="submit" value="Lähetä">
+</form>
+{% endif %}
+<hr>
+{% for message in messages %}
+<a href="/profiili/{{ message[1] }}">{{ message[1] }}</a> : {{ message[0] }}
+<hr>
+{% endfor %}
+

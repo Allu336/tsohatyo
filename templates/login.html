@@ -1,0 +1,27 @@
+{% if session.username %}
+<p>Haluatko kirjautua ulos käyttäjästä: {{ session.username }}?</p>
+<a href="/logout">Kyllä</a> <a href="/">Ei</a>
+
+{% else %}
+{% if attempt != "failed" %}
+<a href="/">palaa etusivulle</a>
+<form action="/login2" method="POST">
+<p>Käyttäjätunnus:<br>
+<input type="text" name="username"></p>
+<p>Salasana:<br>
+<input type="password" name="password"></p>
+<input type="submit" value="Kirjaudu">
+</form>
+
+{% else %}
+<a href="/">palaa etusivulle</a>
+<p>Väärä käyttäjätunnus/salasana.</p>
+<form action="/login2" method="POST">
+<p>Käyttäjätunnus:<br>
+<input type="text" name="username"></p>
+<p>Salasana:<br>
+<input type="password" name="password"></p>
+<input type="submit" value="Kirjaudu">
+
+{% endif %}
+{% endif %}

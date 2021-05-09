@@ -1,0 +1,36 @@
+<title>Etusivu</title>
+{% if session.username %}
+<h2> Hei <a href="/profiili/{{ session.username }}">{{ session.username }}</a>.</h2>
+<h1>Tervetuloa keskustelupalstalle.</h1>
+<p><a href="/login">kirjaudu sisään</a> tai <a href="/signin">luo uusi käyttäjä</a><p>
+<br>
+<hr>
+<h2>Aiheet:</h2>
+<p><b><a href="/Aihe/Esittely">Esittely</a>/<a href="/Aihe/Vapaa aihe">Vapaa aihe</a>/<a href="/Aihe/Neuvoja">Neuvoja</a>/<a href="/Aihe/Opiskelu">Opiskelu</a></b></p>
+<p><h2>Uusimmat keskustelut:</h2>
+{% for thread in threads %}
+{{thread[0]}}
+<br>
+{{thread[1]}}
+<br>
+</p>
+<a href="/keskusteluketju/{{thread[2]}}">siirry keskusteluun</a>
+<hr>
+{% endfor %}
+{% else %}
+<h1>Tervetuloa keskustelupalstalle.</h1>
+<p><a href="/login">kirjaudu sisään</a> tai <a href="/signin">luo uusi käyttäjä</a><p>
+<br>
+<hr>
+<h2>Aiheet:</h2>
+<p><b><a href="/Aihe/Esittely">Esittely</a>/<a href="/Aihe/Vapaa aihe">Vapaa aihe</a>/<a href="/Aihe/Neuvoja">Neuvoja</a>/<a href="/Aihe/Opiskelu">Opiskelu</a></b></p>
+<h2>Uusimmat keskustelut:</h2>
+{% for thread in threads %}
+{{thread[0]}}
+<br>
+{{thread[1]}}
+<br>
+<a href="/keskusteluketju/{{thread[2]}}">siirry keskusteluun</a>
+<hr>
+{% endfor %}
+{% endif %}

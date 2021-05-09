@@ -1,0 +1,22 @@
+{% if attempt != "failed" %}
+<a href="/">palaa etusivulle</a>
+<form action="/signin2" method="POST">
+<p>Käyttäjätunnus:<br>
+<input type="text" name="username"></p>
+<p>Salasana:<br>
+<input type="password" name="password"></p>
+<input type="submit" value="Luo tili">
+</form>
+
+{% else %}
+<a href="/">palaa etusivulle</a>
+<form action="/signin2" method="POST">
+<p>Käyttäjätunnus ei kelpaa. Valitse toinen.</p>
+<p>Käyttäjätunnus:<br>
+<input type="text" name="username"></p>
+<p>Salasana:<br>
+<input type="password" name="password"></p>
+<input type="submit" value="Luo tili">
+</form>
+
+{% endif %}

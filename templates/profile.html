@@ -1,0 +1,40 @@
+<a href="/">Siirry etusivulle</a>
+
+{% if current_user or chat == "no" %}
+
+<h1>{{ user }}</h1>
+
+{% if current_user == True %}
+<a href="/kuvaus">Muuta kuvausta</a>
+{% endif %}
+
+<p>{{ user_bio }}<p>
+
+<p>kaverilista:</p>
+<ul>
+{% for friend in friends %}
+<li><a href="/profiili/{{ friend[0] }}">{{ friend[0] }}</a>
+{% endfor %}
+</ul>
+
+{% else %}
+
+<h1>{{ user }}</h1>
+{% if test == None %}
+<a href="/kaverilista/{{ user }}"">Lisää kaverilistaan</a>
+{% else %}
+<a href="/kaverilista/{{ user }}"">Poista kaverilistasta</a>
+{% endif %}
+<a href="/keskustelu/{{ chat }}">Lähetä viesti</a></p>
+
+<p>{{ user_bio }}<p>
+
+<p>kaverilista:</p>
+<ul>
+{% for friend in friends %}
+<li><a href="/profiili/{{ friend[0] }}">{{ friend[0] }}</a>
+{% endfor %}
+</ul>
+
+{% endif %}
+

@@ -1,0 +1,13 @@
+<a href="/">Siirry etusivulle</a>
+<form action="/uusiviesti/{{ chat_id }}" method="POST">
+Viesti:
+<br>
+<textarea name="chattext" rows="4" cols="50"> </textarea>
+<br>
+<input type="submit" value="Lähetä">
+</form>
+<hr>
+{% for message in messages %}
+{{ message[1] }} : {{ message[0] }}
+<hr>
+{% endfor %}
